@@ -98,8 +98,10 @@ const TaskComponent = ({
           className="text-sm mb-4 md:text-sm"
           style={{ color: textColor, fontWeight: 500 }}
         >
-          <strong>Task Description:</strong>{" "}
-          {description.length > 50 ? (
+          <strong>{status === "rejected" ? "Reason for Rejection:" : "Task Description:"}</strong>{" "}
+          {status === "rejected" ? (
+            "Reason for rejection"
+          ) : description.length > 50 ? (
             <>
               {description.slice(0, 50) + "... "}
               <button
@@ -125,7 +127,7 @@ const TaskComponent = ({
           target={target}
           department={department}
           date={date}
-          description={description}
+          description={status === "rejected" ? "Reason for rejection" : description}
           id={id}
           points={points}
           status={status}

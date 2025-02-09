@@ -28,11 +28,12 @@ const TaskModal = ({
         >
             <div
                 className="bg-white rounded-lg p-6 shadow-xl max-w-lg mx-auto w-full relative"
-                onClick={(e) => e.stopPropagation()} // Prevent close on modal click
+                onClick={(e) => e.stopPropagation()} 
             >
                 <DialogHeader style={{ backgroundColor: taskColor, color: textColor1 }}>
                     {taskName}
-                </DialogHeader>        <DialogBody>
+                </DialogHeader>        
+                <DialogBody>
                     <div
                         className="p-4 border rounded-xl shadow-lg font-sans"
                         style={{ fontFamily: 'Lato, sans-serif', border: `1px solid ${taskColor}` }}
@@ -48,7 +49,7 @@ const TaskModal = ({
                                 <strong>Date:</strong> {date}
                             </div>
                             <div style={{ color: textColor }}>
-                                <strong>Description:</strong> {description}
+                                <strong>{status === "rejected" ? "Reason for Rejection" : "Description"}:</strong> {description}
                             </div>
                             <div style={{ color: textColor }}>
                                 <strong>Points:</strong> {points}
